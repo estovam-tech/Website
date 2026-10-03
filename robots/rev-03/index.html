@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rev 0.3 - Estovam Tech</title>
+<meta name="description" content="Rev 0.3: specs, parts and a live 3D model of the Estovam Tech robot.">
+<link rel="icon" href="../../assets/img/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap">
+<link rel="stylesheet" href="../../assets/css/es.css">
+</head>
+<body class="es" id="top">
+<div class="es-wrap">
+<header class="es-header" data-hud="Robotics engineering|Robots|Rev 0.3"></header>
+
+<main>
+<section class="es-sec">
+ <p class="es-hud">// Rev 0.3<span class="sep">//</span>500+ parts</p>
+ <!-- EDIT -->
+ <h1 class="es-display es-h2"><span class="es-todo">Robot name</span></h1>
+ <p class="es-lead">A small autonomous robot built from off-the-shelf parts. A rounded head sits on an egg-shaped body.</p>
+ <ul class="es-facts">
+  <li><span class="k">Compute</span><span>Raspberry Pi 5</span></li>
+  <li><span class="k">Vision</span><span>Arducam IMX519 camera</span></li>
+  <li><span class="k">Hearing</span><span>ReSpeaker microphone board</span></li>
+  <li><span class="k">Display</span><span>NeoPixel 8-LED stick</span></li>
+  <li><span class="k">Shell</span><span>Four sections, frosted clear</span></li>
+  <li><span class="k">Local LLM</span><span>Rubik Pi runs a local LLM. It is not mounted on the robot yet</span></li>
+ </ul>
+ <!-- /EDIT -->
+</section>
+
+<section class="es-sec" id="model">
+ <h2 class="es-display es-h2">Turn it around</h2>
+ <!-- 3D viewer block: copied from index.html. viewer.js looks for these ids. -->
+ <figure class="es-frame es-viewer locked" id="viewer">
+  <button class="es-lock" id="lock" type="button" aria-label="Click to interact with the 3D model"><span class="es-lock__t es-display">Click to interact</span><span class="es-hud">Rotate<span class="sep">//</span>Pan<span class="sep">//</span>Zoom</span></button>
+  <div class="es-msg" id="msg">Loading model</div>
+  <div class="es-frame__tl"><span class="es-readout" id="az">AZ 000°</span><span class="es-readout" id="el">EL 00°</span><span class="es-readout" id="zm">Zoom 1.0×</span></div>
+  <div class="es-frame__tr"><span class="es-tag es-tag--live" id="live">Loading</span></div>
+  <div class="es-frame__bl es-hud">Left click to rotate<span class="sep">//</span>Right click to pan<span class="sep">//</span>Scroll to zoom</div>
+  <div class="es-frame__br es-seg" id="segShell" role="group" aria-label="Shell"><span class="es-hud">Shell</span><button type="button" data-m="white" aria-pressed="false">White</button><button type="button" data-m="clear" aria-pressed="true">Clear</button><button type="button" data-m="none" aria-pressed="false">None</button></div>
+ </figure>
+ <table class="es-index" style="margin-top:var(--space-8)">
+  <caption class="es-hud">Select one or more groups to isolate them in the model<span class="sep">//</span>Select a group again to remove it<span class="sep">//</span>Select all six to show everything</caption>
+  <thead><tr><th>No.</th><th>Part group</th><th>What it is</th><th class="num">Pieces</th></tr></thead>
+  <tbody id="parts"></tbody>
+ </table>
+ <!-- /3D viewer block -->
+</section>
+
+<section class="es-sec">
+ <h2 class="es-display es-h2">Notes</h2>
+ <!-- EDIT -->
+ <div class="es-prose">
+  <p class="es-todo">Placeholder. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Add the design notes for this revision here.</p>
+  <h3>Rubik Pi</h3>
+  <p>The Rubik Pi runs a local LLM. It is not on the robot itself at the moment.</p>
+ </div>
+ <!-- /EDIT -->
+</section>
+</main>
+
+<footer class="es-cta" id="contact"></footer>
+</div>
+
+<div class="es-bar es-bar--fixed"></div>
+
+<script src="../../assets/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="../../assets/models/robot-model.js"></script>
+<script src="../../assets/js/viewer.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blog - Estovam Tech</title>
+<meta name="description" content="Build logs and notes from the Estovam Tech team.">
+<link rel="icon" href="../assets/img/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap">
+<link rel="stylesheet" href="../assets/css/es.css">
+</head>
+<body class="es" id="top">
+<div class="es-wrap">
+<header class="es-header" data-hud="Robotics engineering|Blog"></header>
+
+<main>
+<section class="es-sec">
+ <h1 class="es-display es-h2">Blog</h1>
+ <p class="es-hud">Featured<span class="sep">//</span>Build log</p>
+ <div class="es-feat es-feat--rev">
+  <figure class="es-frame es-frame--img es-frame--cover" style="height:min(60vh,520px)"><img src="../assets/img/render-head.jpg" alt="Close-up of the robot head: red LED strip and camera visible through the clear shell"><span class="es-frame__tl es-hud">Head assembly<span class="sep">//</span>500+ parts</span></figure>
+  <div>
+   <!-- EDIT: the featured post. Point it at whichever post matters most right now. -->
+   <h2 class="es-display es-h2">Robot build log</h2>
+   <p>What is inside the robot and how it goes together, with a log of each build step.</p>
+   <ul class="es-facts">
+    <li><span class="k">Compute</span><span>Raspberry Pi 5</span></li>
+    <li><span class="k">Sensing</span><span>Arducam IMX519, ReSpeaker mics</span></li>
+    <li><span class="k">Lights</span><span>NeoPixel 8-LED stick</span></li>
+   </ul>
+   <a class="es-btn" href="robot-build-log/index.html">Read the log</a>
+   <!-- /EDIT -->
+  </div>
+ </div>
+</section>
+
+<section class="es-sec">
+ <h2 class="es-display es-h2">All posts</h2>
+ <!-- To add a post: copy blog/_template, rename the folder, then add a row at the TOP of this table (newest first). -->
+ <table class="es-index">
+  <caption class="es-hud">Newest first<span class="sep">//</span>Select a post to read it</caption>
+  <thead><tr><th>No.</th><th>Post</th><th>Summary</th><th class="num">Date</th></tr></thead>
+  <tbody>
+   <!-- EDIT -->
+   <tr><td class="n">01</td><td class="name"><a href="robot-build-log/index.html">Robot build log</a></td><td>What is inside the robot and how it goes together, with a log of each build step</td><td class="num"><span class="es-todo">Date</span></td></tr>
+   <!-- /EDIT -->
+  </tbody>
+ </table>
+</section>
+</main>
+
+<footer class="es-cta" id="contact"></footer>
+</div>
+
+<div class="es-bar es-bar--fixed"></div>
+
+<script src="../assets/js/site.js"></script>
+</body>
+</html>
