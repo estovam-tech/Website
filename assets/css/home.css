@@ -1,0 +1,65 @@
+/* Home-only effects: scroll reveal, shell compare slider, split-flap text, image lightbox.
+   Loaded after es.css by index.html only. Same rule: token variables only, no hard-coded colors. */
+
+/* ---------- Scroll-pinned hero (see assets/js/home.js) ---------- */
+.es-reveal{height:560vh;position:relative}
+.es-reveal__pin{position:sticky;top:calc(var(--header-h) + env(safe-area-inset-top,0px));height:calc(100vh - var(--header-h));height:calc(100svh - var(--header-h));display:grid;grid-template-columns:1fr 1fr;gap:var(--space-8);align-items:center;padding-bottom:64px}
+.es-reveal h1{font-size:clamp(2.6rem,8.4vw,8.5rem);line-height:.86}
+.es-reveal .w{display:block;width:fit-content;transform-origin:left center;padding:0 .08em}
+.reveal-ready .es-words,.reveal-ready .es-cmp{opacity:0}
+.reveal-ready .w{transform:scale(.6);opacity:.3;transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .4s ease,background-color .3s ease,color .3s ease}
+.reveal-ready .w.act{transform:scale(1);opacity:1;background:var(--ink);color:var(--ground)}
+
+/* "ESTOVAM TECH" splits apart as you scroll */
+.es-brand{display:none}
+.reveal-ready .es-brand{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:.22em;font-size:clamp(3rem,14.5vw,14rem);line-height:.84;white-space:nowrap;pointer-events:none;z-index:2}
+.es-brand span{display:inline-block;will-change:transform,opacity;backface-visibility:hidden;text-rendering:geometricPrecision;-webkit-font-smoothing:antialiased}
+
+/* ---------- Shell compare (solid vs clear) ---------- */
+.es-cmp{display:flex;flex-direction:column;gap:var(--space-4);min-width:0}
+.es-cmp__fig{height:min(64vh,620px);height:min(64svh,620px)}
+.es-cmp__stage{position:absolute;top:48px;bottom:48px;left:50%;transform:translateX(-50%);aspect-ratio:5/6;mix-blend-mode:lighten}
+.es-cmp__stage img{position:absolute;inset:0;width:100%;height:100%;display:block;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.es-cmp__b{clip-path:inset(0 100% 0 0)}
+.es-cmp__rail{position:absolute;top:48px;bottom:48px;left:50%;transform:translateX(-50%);aspect-ratio:5/6;pointer-events:none}
+.es-cmp__line{position:absolute;top:-48px;bottom:-48px;left:15%;width:2px;margin-left:-1px;background:var(--signal)}
+.es-slider{display:flex;align-items:center;gap:var(--space-4)}
+.es-slider input{flex:1;-webkit-appearance:none;appearance:none;background:transparent;height:32px;margin:0;cursor:ew-resize}
+.es-slider input:disabled{cursor:default;opacity:.55}
+.es-slider input::-webkit-slider-runnable-track{height:2px;background:var(--ink)}
+.es-slider input::-moz-range-track{height:2px;background:var(--ink)}
+.es-slider input::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;margin-top:-9px;background:var(--ground);border:1px solid var(--signal);border-radius:0}
+.es-slider input::-moz-range-thumb{width:18px;height:18px;background:var(--ground);border:1px solid var(--signal);border-radius:0}
+.es-slider input:focus-visible{outline:1px solid var(--signal);outline-offset:4px}
+
+/* ---------- Split-flap text ---------- */
+.sf{display:inline-block;position:relative;height:1em;line-height:1em;vertical-align:top}
+.sf .m{visibility:hidden;display:inline-block}
+.sf .g{position:absolute;left:0;right:0;top:0;text-align:center;will-change:transform}
+
+/* ---------- Image lightbox ---------- */
+.es-zoomable{cursor:zoom-in}
+.es-zoomable:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.es-lb{position:fixed;inset:0;z-index:10000;visibility:hidden;opacity:0;background:var(--scrim);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);touch-action:none;overscroll-behavior:contain;transition:opacity .22s ease,visibility 0s linear .22s}
+.es-lb.open{visibility:visible;opacity:1;transition:opacity .22s ease}
+.es-lb__img{position:absolute;left:0;top:0;transform-origin:0 0;max-width:none;user-select:none;-webkit-user-drag:none;cursor:grab;will-change:transform;box-shadow:0 0 0 1px var(--stage-line)}
+.es-lb__img.drag{cursor:grabbing}
+.es-lb__x{position:absolute;top:16px;right:16px;width:48px;height:48px;padding:0;border:1px solid var(--line-strong);border-radius:0;background:var(--ground);color:var(--ink);cursor:pointer;display:grid;place-items:center;z-index:2}
+.es-lb__x:hover,.es-lb__x:focus-visible{background:var(--ink);color:var(--ground)}
+.es-lb__x svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none}
+.es-lb__pct{position:absolute;left:16px;bottom:16px;z-index:2;color:var(--stage-bright);border-color:var(--mute)}
+.es-lb__hint{position:absolute;right:16px;bottom:20px;color:var(--stage-ink);z-index:2;pointer-events:none}
+
+/* ---------- Phones ---------- */
+@media (max-width:760px){
+ /* About 250vh of scroll instead of 560vh (about 4,700px on a phone) */
+ .es-reveal{height:250vh}
+ .es-reveal__pin{grid-template-columns:1fr;gap:var(--space-4);align-content:center}
+ .es-reveal h1{font-size:clamp(2.2rem,12vw,4rem)}
+ .es-cmp__fig{height:40vh;height:40svh}
+ .es-cmp__stage,.es-cmp__rail{top:40px;bottom:40px}
+ .es-cmp__line{top:-40px;bottom:-40px}
+ .es-lb__hint{display:none}
+ /* Keep ESTOVAM TECH inside the screen edges, even if the web font is slow and a wider fallback font shows */
+ .reveal-ready .es-brand{font-size:11vw;gap:.18em}
+}
