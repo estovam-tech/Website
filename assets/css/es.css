@@ -244,6 +244,9 @@ body{margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:calc(48px 
  .es-sec{padding:var(--space-10) 0}
  .es-viewer{height:70vh;height:70svh}
  .es-frame__bl{display:none}
+ /* Cropped renders: show the whole image at its own shape instead of a tall zoomed crop. !important beats the inline height. */
+ .es-frame--cover{height:auto!important;aspect-ratio:1500/1168}
+ .es-frame--cover img{object-fit:contain}
  /* Header: logo only */
  .es-header .es-hud{display:none}
  /* Bottom bar: Menu + and Contact, no clock, no inline nav */
